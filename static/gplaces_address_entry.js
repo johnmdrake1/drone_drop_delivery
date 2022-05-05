@@ -10,22 +10,33 @@
 // For example: <script
 // src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 let autocomplete;
+//customer name
+let nameField;
+//place id
+let placeidField;
 let address1Field;
 let address2Field;
 let postalField;
 
 function initAutocomplete() {
+  //adding nameField
+  nameField = document.querySelector("#cust-name");
   address1Field = document.querySelector("#ship-address");
   address2Field = document.querySelector("#address2");
   postalField = document.querySelector("#postcode");
+  //adding hidden place id
+  placeidField = document.querySelector("#place-id");
   // Create the autocomplete object, restricting the search predictions to
-  // addresses in the US and Canada.
+  // addresses in the US only.
   autocomplete = new google.maps.places.Autocomplete(address1Field, {
-    componentRestrictions: { country: ["us", "ca"] },
-    fields: ["address_components", "geometry"],
+    componentRestrictions: { country: ["us"] },
+    fields: ["address_components", "geometry", "place_id"],
     types: ["address"],
   });
-  address1Field.focus();
+  //focusing on customer name field first
+  nameField.focus();
+  //removing address field focus
+  // address1Field.focus();
   // When the user selects an address from the drop-down, populate the
   // address fields in the form.
   autocomplete.addListener("place_changed", fillInAddress);
@@ -36,6 +47,9 @@ function fillInAddress() {
   const place = autocomplete.getPlace();
   let address1 = "";
   let postcode = "";
+  let placeid = "";
+
+  placeid = place.place_id;
 
   // Get each component of the address from the place details,
   // and then fill-in the corresponding field on the form.
@@ -80,6 +94,7 @@ function fillInAddress() {
 
   address1Field.value = address1;
   postalField.value = postcode;
+  placeidField.value = placeid;
   // After filling the form with address components from the Autocomplete
   // prediction, set cursor focus on the second address line to encourage
   // entry of subpremise information such as apartment, unit, or floor number.

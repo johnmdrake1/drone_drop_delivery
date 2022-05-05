@@ -17,9 +17,12 @@ def landing():
 	print("Rendering home/landing page...")
 	drone_address = request.args.get("ship-address")
 	cust_name = request.args.get("cust-name")
+	place_id = request.args.get("place-id")
+	state = request.args.get("state")
+	locality = request.args.get("locality")
+	postcode = request.args.get("postcode")
 	if drone_address != None:
-		if cust_name != None:
-			return redirect(url_for("confirm", drone_address=drone_address, cust_name=cust_name))
+		return redirect(url_for("confirm", drone_address=drone_address, cust_name=cust_name, state=state, locality=locality, postcode=postcode,place_id=place_id))
 	return render_template("landing.html")
 
 #confirmation page
@@ -27,6 +30,10 @@ def landing():
 def confirm():
 	drone_address=request.args.get('drone_address', None)
 	cust_name=request.args.get('cust_name', None)
-	return render_template("confirm.html", drone_address=drone_address,cust_name=cust_name)
+	place_id=request.args.get('place_id', None)
+	state = request.args.get("state", None)
+	locality = request.args.get("locality", None)
+	postcode = request.args.get("postcode", None)
+	return render_template("confirm.html", drone_address=drone_address,cust_name=cust_name,state=state, locality=locality, postcode=postcode,place_id=place_id)
 
 

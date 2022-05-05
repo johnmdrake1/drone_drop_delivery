@@ -10,11 +10,16 @@
 // For example: <script
 // src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 let autocomplete;
+//customername
+let nameField;
 let address1Field;
 let address2Field;
 let postalField;
 
 function initAutocomplete() {
+  //Modifying for customer name
+  nameField = document.querySelector("#cust-name");
+  nameField.focus();
   address1Field = document.querySelector("#ship-address");
   address2Field = document.querySelector("#address2");
   postalField = document.querySelector("#postcode");
@@ -22,10 +27,14 @@ function initAutocomplete() {
   // addresses in the US and Canada.
   autocomplete = new google.maps.places.Autocomplete(address1Field, {
     componentRestrictions: { country: ["us"] },
-    fields: ["address_components", "geometry"],
+    fields: ["address_components", "geometry", "place_id"],
     types: ["address"],
   });
-  address1Field.focus();
+  //Making name be first focus
+  nameField.focus();
+
+  //taking address field focus and putting it somewhere else
+  // address1Field.focus();
   // When the user selects an address from the drop-down, populate the
   // address fields in the form.
   autocomplete.addListener("place_changed", fillInAddress);
@@ -77,7 +86,7 @@ function fillInAddress() {
         break;
     }
   }
-  
+
   address1Field.value = address1;
   postalField.value = postcode;
   // After filling the form with address components from the Autocomplete

@@ -10,7 +10,7 @@
     <meta charset="utf-8">
     <script async
       
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAbZRidkxGcoqNHugrihE0Lcwe_sk3mVHo&libraries=places">
+      src="https://maps.googleapis.com/maps/api/js?key=<apikey>&libraries=places">
   </script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <link
@@ -29,15 +29,17 @@ https://developers.google.com/maps/documentation/javascript/examples/places-auto
     <form id="address-form" action="" method="get" autocomplete="off">
       <p class="title">Please Enter Your Name and Address</p>
       <p class="note"><em>* = required field</em></p>
-      <label class="full-field">
+      
         <!-- Avoid the word "address" in id, name, or label text to avoid browser autofill from conflicting with Place Autocomplete. Star or comment bug https://crbug.com/587466 to request Chromium to honor autocomplete="off" attribute. -->
+        <label class="full-field">
         <span class="form-label">Customer name*</span>
         <input
           id="cust-name"
           name="cust-name"
           required
-          autocomplete="off"
           />
+        </label>
+          <label class="full-field">
         <span class="form-label">Deliver to*</span>
         <input
           id="ship-address"
@@ -46,7 +48,13 @@ https://developers.google.com/maps/documentation/javascript/examples/places-auto
           autocomplete="off"
         />
       </label>
-<!--       <label class="full-field">
+      <label class="full-field">
+        <span class="form-label">Place ID</span>
+        <!-- Location ID in hidden input so it can be passed, very important! -->
+        <input id=place-id 
+          name="place-id" />
+        </label>
+      <label class="full-field">
         <span class="form-label">Apartment, unit, suite, or floor #</span>
         <input id="address2" name="address2" />
       </label>
@@ -65,7 +73,10 @@ https://developers.google.com/maps/documentation/javascript/examples/places-auto
       <label class="full-field">
         <span class="form-label">Country/Region*</span>
         <input id="country" name="country" required />
-      </label> -->
+      </label>
+
+      
+
       <button type="submit" class="my-button">Save address</button>
 
       <!-- Reset button provided for development testing convenience.
@@ -80,7 +91,7 @@ https://developers.google.com/maps/documentation/javascript/examples/places-auto
      with https://www.npmjs.com/package/@googlemaps/js-api-loader.
     -->
     <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAbZRidkxGcoqNHugrihE0Lcwe_sk3mVHo&callback=initAutocomplete&libraries=places&v=weekly"
+      src="https://maps.googleapis.com/maps/api/js?key=<apikey>&callback=initAutocomplete&libraries=places&v=weekly"
       defer
     ></script>
   </body>
