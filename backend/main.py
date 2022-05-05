@@ -2,23 +2,20 @@
 Am going to use one file for backend functionality, running the server, Flask, etc. for now. Subject to restructuring later.
 '''
 
-import flask
+from flask import Flask, render_template, request, url_for, flash, redirect
 
 #Webapp using flask stored in variable called app
-app = flask.Flask(__name__, static_folder="../static", template_folder="../templates")
+app = Flask(__name__, static_folder="../static", template_folder="../templates")
 
 
 #Start by rendering landing page
 
 #Default URL
 @app.route("/")
-@app.route("/landing")
+@app.route("/landing", methods=['POST', 'GET'])
 def landing():
 	print("Rendering home/landing page...")
-	return flask.render_template("landing.html")
+	print(request.args.get("locality"))
+	return render_template("landing.html")
 
 
-
-
-
-app.run()

@@ -5,13 +5,13 @@
 
 <html>
   <head>
-    <h1 align ="center" style="font-size:50px;color=blue">Drone Delivery Service</h1>
+  	<h1 align ="center" style="font-size:50px;color=blue">Drone Delivery Service</h1>
     <title>Drone Delivery Service</title>
     <meta charset="utf-8">
     <script async
-      
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAbZRidkxGcoqNHugrihE0Lcwe_sk3mVHo&libraries=places">
-  </script>
+    	
+    	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAbZRidkxGcoqNHugrihE0Lcwe_sk3mVHo&libraries=places">
+	</script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <link
       href="https://fonts.googleapis.com/css?family=Roboto:400,500"
@@ -26,7 +26,7 @@
 https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-addressform
     -->
 
-    <form id="address-form" action="" method="GET, POST" autocomplete="off">
+    <form id="address-form" action="" method="get" autocomplete="off">
       <p class="title">Please Enter Your Address</p>
       <p class="note"><em>* = required field</em></p>
       <label class="full-field">
@@ -78,3 +78,68 @@ https://developers.google.com/maps/documentation/javascript/examples/places-auto
     ></script>
   </body>
 </html>
+
+
+
+<!-- old code using gmaps now -->
+
+
+<!-- <html>
+	<head>
+		<h1 align ="center" style="font-size:50px;color=blue">Drone Delivery Service</h1>
+		<title>Drone Delivery Service</title>
+		<meta charset="utf-8">
+		<script async
+    		src="https://maps.googleapis.com/maps/api/js?key=<apikey>&libraries=places&callback=initMap">
+		</script>
+
+		
+      </head>
+
+<body>
+	
+	<link rel="stylesheet" href="../static/gplaces_address_form.css">
+	<script type="text/javascript" src="../js/gplaces_address_entry.js"></script> 
+
+
+
+</body>
+
+
+
+</html>
+ -->
+<!-- <!DOCTYPE HTML>
+<html>
+	<head>
+		<h1 align ="center" style="font-size:50px;color=blue">Drone Delivery Service</h1>
+		<title>Drone Delivery Service</title>
+		<meta charset="utf-8">
+
+		
+      </head>
+
+<body>
+	<div class="autocomplete-container" id="autocomplete-container"></div>
+	<div class="autocomplete-container" id="autocomplete-container-country"></div>
+	<div class="autocomplete-container" id="autocomplete-container-city"></div>
+	<link rel="stylesheet" href="../static/address_form.css">
+	<script type="text/javascript" src="../js/address_complete.js"></script> 
+
+		<div class="container-fluid">
+	<div class="row">
+		<div class="col-6">
+			<div class="row">
+				<div class input type="text" id="DroneName" class="form-control mt2" placeholder = "Spark, Phantom, etc." required>
+				</div>
+			</div>
+		</div>
+	</div>
+</div> -->
+
+<!-- </body>
+
+
+
+</html>
+ -->
